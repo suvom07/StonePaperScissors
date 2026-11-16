@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <form method="POST">
+      <div class="choices">
+
+        <button type="submit" class="choice" name="choice" value="rock">
+          <img src="{{ url_for('static', filename='images/rock.png') }}" alt="Rock" />
+        </button>
+
+        <button type="submit" class="choice" name="choice" value="paper">
+          <img src="{{ url_for('static', filename='images/paper.png') }}" alt="Paper" />
+        </button>
+
+        <button type="submit" class="choice" name="choice" value="scissors">
+          <img src="{{ url_for('static', filename='images/scissors.png') }}" alt="Scissors" />
+        </button>
+
+      </div>
+    </form>
+
+    <div class="score-board">
+      <div class="score">
+        <p id="user-score">{{ user_score }}</p>
+        <p>You</p>
+      </div>
+
+      <div class="score">
+        <p id="comp-score">{{ computer_score }}</p>
+        <p>Comp</p>
+      </div>
+    </div>
+
+    <div class="msg-container">
+      <p id="msg" class="{{ result }}">{{ message }}</p>
+    </div>
+
+    <form method="POST">
+      <button type="submit" name="reset" value="yes" id="reset-btn">
+        Reset Game
+      </button>
+    </form>
+
+  </body>
+</html>
